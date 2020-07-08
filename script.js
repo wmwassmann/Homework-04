@@ -61,8 +61,7 @@ function start01() {
     option02.innerHTML = answer02[0];
     option03.innerHTML = answer03[0];
     option04.innerHTML = answer04[0];
-    number01.innerHTML = qNum++;
-    
+    number01.innerHTML = qNum++;    
 }
 
 function timer01() {
@@ -70,22 +69,22 @@ function timer01() {
     if (time < 30) {
         time01.innerHTML = time;
     }
-    if (time < 1) {
+    
+    if (time === 0) {
         window.clearInterval(update);
-        endgame01.innerHTML = "And I am Iron Man";
+        endgame01.innerHTML = "And I am Iron Man.";
         disappear01.innerHTML = "";
         message01.innerHTML = "";
         question.innerHTML = "";
         option01.innerHTML = "";
         option02.innerHTML = "";
         option03.innerHTML = "";
-        option04.innerHTML = "";
-        restart.innerHTML = "<button class=button01 onclick=start01()>Start Over</button>";
+        option04.innerHTML = "";        
     } 
+
 }
 
 update = setInterval("timer01()", 1000);
-
 
 
 function correct01() {
@@ -109,9 +108,9 @@ function incorrect01() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next02()>Next</button>";
+
 }
-
-
+  
 function next02() {
     endgame01.innerHTML = "";
     question.innerHTML = questions[1];
@@ -263,7 +262,7 @@ function correct06() {
     option02.innerHTML = "";
     option03.innerHTML = "";
     option04.innerHTML = "";
-    next01.innerHTML = "<button class=button01 onclick=finish()>*Fight Thor*</button>";
+    next01.innerHTML = "<button class=button01 onclick=finished()>*Fight Thor*</button>";
     score01.innerHTML = score++;
 }
 
@@ -274,13 +273,25 @@ function incorrect06() {
     option02.innerHTML = "";
     option03.innerHTML = "";
     option04.innerHTML = "";
-    next01.innerHTML = "<button class=button01 onclick=finish()>*Snap*</button>";
+    next01.innerHTML = "<button class=button01 onclick=finished()>*Fight Iron Man*</button>";
 }
 
-function finish() {
-    next01.innerHTML = "<button class=button01 onclick=start01()>*Snap*</button>";
-    if (score == "6") {
-        endgame01.innerHTML = "You should have gone for the head";
-    }
+
+
+
+
+var userName = document.querySelector("#username");
+var submit = document.querySelector("submit");
+
+renderLastRegistered();
+
+function renderLastRegistered() {
+    var userName = localStorage.getItem("username");
 }
 
+submit.addEventListener("click", function(event) {
+    var userName = document.querySelector("#username").value; 
+
+    localStorage.setItem("username", userName);
+    renderLastRegistered();
+});

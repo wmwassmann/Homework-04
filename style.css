@@ -60,3 +60,38 @@
 #powerStoneC {
     color: purple;
 }
+
+#madTitan {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.goBack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: purple;
+    color: gold;
+    padding: 30px;
+    margin: 20px;
+    
+}
+
+#username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
