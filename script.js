@@ -51,9 +51,9 @@ var qNum = 0;
 qNum++;
 var score = 0;
 score++;
+var time = 0;
 
-function start01() {
-    time = 30;    
+function start01() {    
     disappear01.innerHTML = "";
     message01.innerHTML = "";
     question.innerHTML = questions[0];
@@ -61,30 +61,19 @@ function start01() {
     option02.innerHTML = answer02[0];
     option03.innerHTML = answer03[0];
     option04.innerHTML = answer04[0];
-    number01.innerHTML = qNum++;    
-}
-
-function timer01() {
-    time = time - 1;
-    if (time < 30) {
-        time01.innerHTML = time;
-    }
+    number01.innerHTML = qNum++;     
     
-    if (time === 0) {
-        window.clearInterval(update);
-        endgame01.innerHTML = "And I am Iron Man.";
-        disappear01.innerHTML = "";
-        message01.innerHTML = "";
-        question.innerHTML = "";
-        option01.innerHTML = "";
-        option02.innerHTML = "";
-        option03.innerHTML = "";
-        option04.innerHTML = "";        
-    } 
+    time = 30;
+    var x = setInterval(function() {
+    document.getElementById("time01").innerHTML=" " + time;
+    time = time - 1; 
 
+    if (time < 0) {
+        clearInterval(x);
+        }
+    }, 1000);
 }
 
-update = setInterval("timer01()", 1000);
 
 
 function correct01() {
@@ -97,6 +86,7 @@ function correct01() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next02()>Next</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time + 2;
 }
 
 function incorrect01() {
@@ -108,6 +98,7 @@ function incorrect01() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next02()>Next</button>";
+    time01.innerHTML = time - 10;
 
 }
   
@@ -132,6 +123,7 @@ function correct02() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next03()>Next</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time + 2;
 }
 
 function incorrect02() {
@@ -142,6 +134,7 @@ function incorrect02() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next03()>Next</button>";
+    time01.innerHTML = time - 10;
 }
 
 function next03() {
@@ -165,6 +158,7 @@ function correct03() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next04()>Next</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time + 2;
 }
 
 function incorrect03() {
@@ -175,6 +169,7 @@ function incorrect03() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next04()>Next</button>";
+    time01.innerHTML = time - 10;
 }
 
 function next04() {
@@ -198,6 +193,7 @@ function correct04() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next05()>Next</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time + 2;
 }
 
 function incorrect04() {
@@ -208,6 +204,7 @@ function incorrect04() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next05()>Next</button>";
+    time01.innerHTML = time - 10;
 }
 
 function next05() {
@@ -231,6 +228,7 @@ function correct05() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next06()>Next</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time + 2;
 }
 
 function incorrect05() {
@@ -241,6 +239,7 @@ function incorrect05() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next06()>Next</button>";
+    time01.innerHTML = time - 10;
 }
 
 function next06() {
@@ -264,6 +263,7 @@ function correct06() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=finished()>*Fight Thor*</button>";
     score01.innerHTML = score++;
+    time01.innerHTML = time;
 }
 
 function incorrect06() {
@@ -274,24 +274,37 @@ function incorrect06() {
     option03.innerHTML = "";
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=finished()>*Fight Iron Man*</button>";
+    time01.innerHTML = time - 10;
 }
 
+    var userName = document.querySelector("#username");
+    var submit = document.querySelector("submit");
+    var userNameSpan = document.querySelector("name-span");
 
-
-
-
-var userName = document.querySelector("#username");
-var submit = document.querySelector("submit");
-
-renderLastRegistered();
-
-function renderLastRegistered() {
-    var userName = localStorage.getItem("username");
-}
-
-submit.addEventListener("click", function(event) {
-    var userName = document.querySelector("#username").value; 
-
-    localStorage.setItem("username", userName);
     renderLastRegistered();
-});
+
+function message02 (type, message) {
+    msgDiv.textContent = message;
+    msgDiv.setAttribute("class", type);
+    }    
+    
+    function renderLastRegistered() {
+        var userName = localStorage.getItem("username");
+    }
+
+    submit.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var userName = document.querySelector("#username").value; 
+
+        
+        if (userName === "") {
+            displayMessage("error", "Email cannot be blank");
+        } else {
+            displayMessage("success", "Registered successfully");
+
+        localStorage.setItem("username", userName);
+            renderLastRegistered();
+
+        }
+    });
