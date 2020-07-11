@@ -1,7 +1,7 @@
 var questions = [
-    "From which MCU faction did Thanos acquire the Power Stone?<br /> <br />", 
-    "Which major MCU character willingly gave Thanos the Space Stone, or The Tesseract?<br /> <br />", 
-    "The Reality Stone, or the Aether was last seen in the hands of which MCU antagonist?<br /> <br />", 
+    "From which MCU faction did Thanos acquire the Power Stone?<br /> <br />",
+    "Which major MCU character willingly gave Thanos the Space Stone, or The Tesseract?<br /> <br />",
+    "The Reality Stone, or the Aether was last seen in the hands of which MCU antagonist?<br /> <br />",
     "What planet was the resting place of the Soul Stone, first introduce in Infinity War?<br /> <br />",
     "Why did Doctor Strange willingly give up the Time Stone, arguable the most powerful infinity stone to the Mad Titan?<br /> <br />",
     "Where was the Mind Stone when Thanos acquired it at the end of Infinity War?<br /> <br />"
@@ -53,7 +53,7 @@ var score = 0;
 score++;
 var time = 0;
 
-function start01() {    
+function start01() {
     disappear01.innerHTML = "";
     message01.innerHTML = "";
     question.innerHTML = questions[0];
@@ -61,15 +61,15 @@ function start01() {
     option02.innerHTML = answer02[0];
     option03.innerHTML = answer03[0];
     option04.innerHTML = answer04[0];
-    number01.innerHTML = qNum++;     
-    
-    time = 30;
-    var x = setInterval(function() {
-    document.getElementById("time01").innerHTML=" " + time;
-    time = time - 1; 
+    number01.innerHTML = qNum++;
 
-    if (time < 0) {
-        clearInterval(x);
+    time = 30;
+    var x = setInterval(function () {
+        document.getElementById("time01").innerHTML = " " + time;
+        time = time - 1;
+
+        if (time < 0) {
+            clearInterval(x);
         }
     }, 1000);
 }
@@ -87,6 +87,7 @@ function correct01() {
     next01.innerHTML = "<button class=button01 onclick=next02()>Next</button>";
     score01.innerHTML = score++;
     time01.innerHTML = time + 2;
+    time = time + 2;
 }
 
 function incorrect01() {
@@ -99,9 +100,9 @@ function incorrect01() {
     option04.innerHTML = "";
     next01.innerHTML = "<button class=button01 onclick=next02()>Next</button>";
     time01.innerHTML = time - 10;
-
+    time = time - 10;
 }
-  
+
 function next02() {
     endgame01.innerHTML = "";
     question.innerHTML = questions[1];
@@ -110,7 +111,7 @@ function next02() {
     option03.innerHTML = answer03[1];
     option04.innerHTML = answer04[1];
     answer.innerHTML = "";
-    next01.innerHTML = "";    
+    next01.innerHTML = "";
     number01.innerHTML = qNum++;
 }
 
@@ -145,7 +146,7 @@ function next03() {
     option03.innerHTML = answer03[2];
     option04.innerHTML = answer04[2];
     answer.innerHTML = "";
-    next01.innerHTML = "";    
+    next01.innerHTML = "";
     number01.innerHTML = qNum++;
 }
 
@@ -180,7 +181,7 @@ function next04() {
     option03.innerHTML = answer03[3];
     option04.innerHTML = answer04[3];
     answer.innerHTML = "";
-    next01.innerHTML = "";    
+    next01.innerHTML = "";
     number01.innerHTML = qNum++;
 }
 
@@ -215,7 +216,7 @@ function next05() {
     option03.innerHTML = answer03[4];
     option04.innerHTML = answer04[4];
     answer.innerHTML = "";
-    next01.innerHTML = "";    
+    next01.innerHTML = "";
     number01.innerHTML = qNum++;
 }
 
@@ -250,7 +251,7 @@ function next06() {
     option03.innerHTML = answer03[5];
     option04.innerHTML = answer04[5];
     answer.innerHTML = "";
-    next01.innerHTML = "";    
+    next01.innerHTML = "";
     number01.innerHTML = qNum++;
 }
 
@@ -277,34 +278,38 @@ function incorrect06() {
     time01.innerHTML = time - 10;
 }
 
-    var userName = document.querySelector("#username");
-    var submit = document.querySelector("submit");
-    var userNameSpan = document.querySelector("name-span");
+var userName = document.querySelector("#username");
+var submit = document.getElementById("submit");
+var userSpan = document.getElementById("userSpan");
 
-    renderLastRegistered();
+renderLastRegistered();
 
-function message02 (type, message) {
+function message02(type, message) {
     msgDiv.textContent = message;
     msgDiv.setAttribute("class", type);
-    }    
+}
+
+function renderLastRegistered() {
+    // call on the local storage to get value.
+    var userName = localStorage.getItem("username");
+    // render username into userSpan
+    userSpan.innerHTML = userName;
+} 
+
+
+
+
+function save01() {
     
-    function renderLastRegistered() {
-        var userName = localStorage.getItem("username");
-    }
+    var userName = document.querySelector("#username").value;
 
-    submit.addEventListener("click", function(event) {
-        event.preventDefault();
-
-        var userName = document.querySelector("#username").value; 
-
-        
-        if (userName === "") {
-            displayMessage("error", "Email cannot be blank");
-        } else {
-            displayMessage("success", "Registered successfully");
+    if (userName === "") {
+        alert("Email cannot be blank");
+    } else {
+        alert("Registered successfully");     
 
         localStorage.setItem("username", userName);
-            renderLastRegistered();
+        renderLastRegistered();
 
-        }
-    });
+    }
+}
