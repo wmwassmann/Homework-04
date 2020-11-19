@@ -1,65 +1,67 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quiz</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>    
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
-    <div class="header">
-        <h1>Quest for The Infinity Stones</h1>
-
+    <div>
+        <h1>Quest For The Infinity Stones</h1>
     </div>
 
-    <div id="frame01">
-        <div id="text01">
-            <p>Question: <text id="number01">0</text></p>
-            <p>Stones: <text id="score01">0</text></p>
-            <p>Time Until The Avengers Catch You: <text id="time01">30</text></p>
-            <hr>
-            <div id="message01">Click to begin your quest</div>
+    <br><br>
+   
+    <main class="questions" id="questions">
+        <h2 id="heading-prompt">This quest will test you on your knowledge of how Thanos, The Mad Titan acquired all six
+            Infinity Stones.
+        </h2>
+        <br>
+        <div class="timer" id="timer">
+            <h3>Time: <h3>
         </div>
-        <div id="text02">
-            <div id="question"></div>
-            <div id="answer"></div>
-            <div id="option01"></div>
-            <div id="option02"></div>
-            <div id="option03"></div>
-            <div id="option04"></div>
 
-            <div id="text01">
-                <div id="disappear01"><button id="button01 start01" onclick="start01()">Start</button></div>
+        <div class="responses, hidden" id="responses">
+            <ul id="option01"></ul>
+            <ul id="option02"></ul>
+            <ul id="option03"></ul>
+            <ul id="option04"></ul>
+        </div>
+
+        <form class="highscores, hidden" style="margin-left: 40%; margin-top: 30px;" id="highscore">
+            <div>
+                <label for="name">Name:</label>
             </div>
-            <div id="next01"></div>
-            <div is="restart"></div>
-            <div id="endgame01"></div>
+
+            <div>
+                <input type="text" id="userName">
+                <input type="submit" id="submitButton">
+            </div>
+        </form>
+
+        <div class="startButton">
+            <button id="startButton">Start Quest</button>
+        </div>
+        <div class="hiscore">
+            <button id=scoreButton>High Scores</button>
+        </div>
+    </main>
+
+        <div class="scoreList, hidden" id="scores">
+            <h4>Scores
+                <div id="makeUL">
+                </div>
+                <div>
+                    <button class="hidden" id="backButton">Back</button>
+                </div>
+            </h4>
 
         </div>
-    </div>
 
-    <div class="register">
-        <h2>Previous Owner of The Infinity Stones</h2>
-        <p><strong>Name:</strong> <span id="userSpan"></span></p>
-    </div>
-
-    <div class="register">
-        <label for="username">Save your Score</label>
-        <input type="username" name="username" id="username" placeholder="username" />
-        <div id="submit"><button id="button01" onclick="save01()">Submit</button></div>
-    </div>
-
-
-
-
-    <script src="script.js"></script>
+    <script src=assets/javascript.js></script>
 </body>
 
 </html>

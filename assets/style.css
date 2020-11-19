@@ -1,0 +1,131 @@
+body {
+    background-color: rgb(175, 175, 175);
+    background-image: url('img/thanos-marvel-infinity-ay.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    color: gold;
+    font-size: 90px;
+    background-color: purple;
+    margin: 50px;
+    padding: 30px;
+    border-radius: 20%;    
+    -webkit-text-stroke: 1px black;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+    margin: auto;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.hiscore {
+    position: relative;
+    color: purple;
+    margin: 30px;    
+}
+
+#scores {
+    background-color: purple;
+    width: 330px;
+    border-radius: 30%;
+    color: gold;
+    font-size: 20px;
+    -webkit-text-stroke: 0.5px black;
+    
+}
+
+#responses {
+    margin: 30px;
+    width: 1300px;
+    background-color: rgb(68, 35, 68);
+    border-radius: 10%;
+    
+}
+
+#heading-prompt{
+    display: flex;
+    flex: center;
+}
+
+.questions {
+    font-family: sans-serif;
+    font-size: 90%;
+    color: gold;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;  
+    align-items: center;  
+    background-color: purple;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 40px;   
+    border-radius: 10%;
+    -webkit-text-stroke: 0.5px black;
+
+}
+
+.scoreList {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.timer {
+    position: relative;    
+    font-size: 30px;
+}
+
+.responses {
+    flex-direction: column;
+    padding-left: 25%;
+    font-size: 112px;
+}
+
+main ul {
+    height: 40px;
+    width: 50%;
+    padding-top: 20px;
+    margin:auto;
+    font-weight: bold;
+    font-size: large;
+}
+
+main ul:hover {
+    background-color: silver;
+
+}
+
+.startButton {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.incorrect {
+    background-color: rgb(255, 0, 0);
+}
+
+.incorrect:hover {
+    background-color:rgb(255, 0, 0);
+}
+

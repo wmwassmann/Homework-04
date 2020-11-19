@@ -1,6 +1,45 @@
 # Homework-04
-Quest for The Infinity Stones Quiz
 
+![License](https://img.shields.io/badge/License-The%20Unlicense-yellow)
+# Quest for The Infinity Stones - REWORK
+
+## Description:
+
+The Quest for The Infinity Stones quiz is designed to test the user's knowledge on how Thanos collected the six infinity stones in the MCU. It uses several arrays of objects to display questions and answers for the user, and then if the user gets the answer wrong, they will be deducted time from a timer.  If they answer correct, they will be presented with the next question. 
+
+There is also a high score button to log how fast the user answered the quiz. 
+
+## Table of Contents:
+- [installation](#installation)
+- [usage](#usage)
+- [contribution](#contribution)
+- [licenses](#licenses)
+- [test](#test)
+- [contact](#contact)
+- [original](#original)
+
+## Installation:
+To install this application: 
+- Clone the repository into your local directory.
+- Run the index.html file in the default browser.
+
+## Usage:
+To see how well you know your MCU!
+
+<!-- continue -->
+
+## Contribution:
+If you would like to contribute or have any suggestions please use the contact information below and get in touch!
+
+## Contact:
+
+GitHub: https://github.com/wmwassmann/Homework-04-Quiz
+
+Email: williamwassmann@hotmail.com
+
+## Original 
+
+README below:
 
 // My plan of attack was simple.  Make arrays, call the arrays, and on the correct click, the next question would pop up. This took way longer than expected to figure out. 
 // I can see that this probably wasn't necessary to have each button completely erase every other question, rather just log the scores and move on, kind of like one of those 
